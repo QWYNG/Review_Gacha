@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'json'
 require './reviewer_consts/reviewer_consts'
+require 'dotenv/load'
+
 
 def reviewer_gacha
   essntial_reviewer_id = ESSENTIAL_REVIEWERS_IDS.gacha_doesnt_contain(request['user_id'])
@@ -9,8 +11,7 @@ def reviewer_gacha
 end
 
 post '/' do
-  # Might want to add a token read from env variable
-  #status 500 unless request['token'] == 'your-token-here'
+  status 500 unless request['token'] == ENV["VERIFICATION_TOKEN"]
 
   text = reviewer_gacha
 
