@@ -24,7 +24,7 @@ end
 post '/set_reviewer' do
   status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
 
-  if request['text'].include("必須")
+  if request['text'].include('必須')
     ESSENTIAL_REVIEWERS_IDS << request['user_id']
   else
     OTHER_REVIEWERS_IDS << request['user_id']
