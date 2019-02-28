@@ -31,6 +31,6 @@ post '/set' do
   content_type :json
   {
     title: 'GachaBot',
-    text: 'SET!'
+    text: "SET #{request['user_name']}"
   }.to_json
 end
