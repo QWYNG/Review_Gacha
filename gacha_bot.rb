@@ -24,13 +24,15 @@ post '/set' do
 
   if request['text'].include?('essential')
     reviewer.essential_reviewers << request['user_id']
+    text = "SET essntial_reviewer #{request['user_name']}"
   else
     reviewer.other_reviewrs << request['user_id']
+    text = "SET reviewer #{request['user_name']}"
   end
 
   content_type :json
   {
     title: 'GachaBot',
-    text: "SET #{request['user_name']}"
+    text: text
   }.to_json
 end
