@@ -3,16 +3,14 @@ require 'json'
 require './reviewer_consts/reviewer_consts'
 require 'dotenv/load'
 
-def reviewer_gacha
-  essntial_reviewer_id = ESSENTIAL_REVIEWERS_IDS.gacha_doesnt_contain(request['user_id'])
-  reviewer_id = OTHER_REVIEWERS_IDS.gacha_doesnt_contain(request['user_id'])
-  "<@#{essntial_reviewer_id}><@#{reviewer_id}>レビューお願いします"
-end
+reviewer = Reviewer.new([], [])
 
 post '/' do
   status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
 
-  text = reviewer_gacha
+  essntial_reviewer_id = reviewer.essential_reviwer_gacha_doesnt_includ(request['user_id'])
+  reviewer_id = reviewer.other_reviwer_gacha_doesnt_include(request['user_id'])
+  text = "<@#{essntial_reviewer_id}><@#{reviewer_id}>レビューお願いします"
 
   content_type :json
   {
@@ -23,6 +21,12 @@ end
 
 post '/set' do
   status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
+
+  if request['text'].include('essential')
+    reviewer.essential_reviewers << request['user_id']
+  else
+    reviewer.other_reviewrs << request['user_id']
+  end
 
   content_type :json
   {
