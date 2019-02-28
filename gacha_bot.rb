@@ -3,7 +3,6 @@ require 'json'
 require './reviewer_consts/reviewer_consts'
 require 'dotenv/load'
 
-
 def reviewer_gacha
   essntial_reviewer_id = ESSENTIAL_REVIEWERS_IDS.gacha_doesnt_contain(request['user_id'])
   reviewer_id = OTHER_REVIEWERS_IDS.gacha_doesnt_contain(request['user_id'])
