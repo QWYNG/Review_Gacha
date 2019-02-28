@@ -11,13 +11,13 @@ def reviewer_gacha
 end
 
 post '/' do
-  status 500 if request['token'] != ENV["VERIFICATION_TOKEN"]
+  status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
 
   text = reviewer_gacha
 
   content_type :json
   {
     title: 'GachaBot',
-    text: text,
+    text: text
   }.to_json
 end
