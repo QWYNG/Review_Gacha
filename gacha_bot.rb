@@ -20,3 +20,13 @@ post '/' do
     text: text
   }.to_json
 end
+
+post '/set' do
+  status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
+
+  content_type :json
+  {
+    title: 'GachaBot',
+    text: 'SET!'
+  }.to_json
+end
