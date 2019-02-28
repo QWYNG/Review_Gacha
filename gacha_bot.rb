@@ -22,7 +22,7 @@ end
 post '/set' do
   status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
 
-  if request['text'].include('essential')
+  if request['text'].include?('essential')
     reviewer.essential_reviewers << request['user_id']
   else
     reviewer.other_reviewrs << request['user_id']
