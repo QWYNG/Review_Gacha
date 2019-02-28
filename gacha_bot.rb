@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-require './reviewer_consts/reviewer_consts'
+require 'reviewer'
 require 'dotenv/load'
 
 reviewer = Reviewer.new([], [])
