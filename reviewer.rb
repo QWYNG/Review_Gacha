@@ -6,7 +6,7 @@ class Reviewer
     @other_reviewrs = others
   end
 
-  def essential_reviwer_gacha_doesnt_includ(person_id)
+  def essential_reviwer_gacha_doesnt_include(person_id)
     @essential_reviewers.reject { |id| id == person_id }.sample
   end
 
