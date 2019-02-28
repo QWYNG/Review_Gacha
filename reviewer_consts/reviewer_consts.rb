@@ -1,10 +1,16 @@
-require 'dotenv/load'
+class Reviewer
+  attr_accessor :essential_reviewers, :other_reviewrs
 
-ESSENTIAL_REVIEWERS_IDS = ENV['ESSENTIAL_REVIEWERS_IDS'].split(' ')
-OTHER_REVIEWERS_IDS = ENV['OTHER_REVIEWERS_IDS'].split(' ')
+  def initialize(essentials, others)
+    @essential_reviewers = essentials
+    @other_reviewrs = others
+  end
 
-[ESSENTIAL_REVIEWERS_IDS, OTHER_REVIEWERS_IDS].each do |ids|
-  def ids.gacha_doesnt_contain(user_id)
-    reject { |id| id == user_id }.sample
+  def essential_reviwer_gacha_doesnt_includ(person_id)
+    @essential_reviewers.reject { |id| id == person_id }.sample
+  end
+
+  def other_reviwer_gacha_doesnt_include(person_id)
+    @other_reviewrs.reject { |id| id == person_id }.sample
   end
 end
