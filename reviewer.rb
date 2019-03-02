@@ -17,16 +17,16 @@ class Reviewer
   def format_essential_reviewers
     text = []
     essential_reviewers.each do |essential_reviewer|
-      text << "<@#{essential_reviewer}>/n"
+      text << "<@#{essential_reviewer}>\n"
     end
-    text.inspect
+    text.join
   end
 
   def format_other_reviewers
     text = []
     other_reviewrs.each do |other_reviewer|
-      text << "<@#{other_reviewer}>/n"
+      text << "<@#{other_reviewer}>\n"
     end
-    text.inspect
+    text.join
   end
 end
