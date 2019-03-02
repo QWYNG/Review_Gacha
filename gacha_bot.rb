@@ -34,7 +34,7 @@ post '/set' do
   content_type :json
   {
     title: 'GachaBot',
-    channel: request['channel'],
+    channel_id: request['channel_id'],
     text: text
   }.to_json
 end
