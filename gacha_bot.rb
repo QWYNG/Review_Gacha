@@ -15,7 +15,7 @@ post '/' do
 
   content_type :json
   {
-    title: 'GachaBot',
+    response_type: 'in_channel',
     text: text
   }.to_json
 end
@@ -33,8 +33,7 @@ post '/set' do
 
   content_type :json
   {
-    title: 'GachaBot',
-    channel_id: request['channel_id'],
+    response_type: 'in_channel',
     text: text
   }.to_json
 end
