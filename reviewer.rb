@@ -24,7 +24,7 @@ class Reviewer
 
   def format_other_reviewers
     text = []
-    other_reviewers.each do |other_reviewer|
+    other_reviewrs.each do |other_reviewer|
       text << "<@#{other_reviewer}>/n"
     end
     text.inspect
