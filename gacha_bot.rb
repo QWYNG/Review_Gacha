@@ -35,7 +35,7 @@ post '/set' do
     text = "SET essntial_reviewer #{user_id}"
   else
     reviewer.other_reviewrs << user_id
-    text = "SET reviewer #{user_id}"
+    text = "SET reviewer <@#{user_id}>"
   end
 
   content_type :json
