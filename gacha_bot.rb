@@ -6,6 +6,7 @@ require 'dotenv/load'
 reviewer = Reviewer.new([], [])
 
 post '/' do
+  p request
   status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
 
   essntial_reviewer_id = reviewer.essential_reviwer_gacha_doesnt_include(request['user_id'])
@@ -33,6 +34,7 @@ post '/set' do
   content_type :json
   {
     title: 'GachaBot',
+    channel: request['channel'],
     text: text
   }.to_json
 end
