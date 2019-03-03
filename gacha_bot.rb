@@ -41,7 +41,7 @@ post '/reviewer' do
   response_json(text)
 end
 
-post 'remove/reviewer' do
+post '/remove' do
   check_token!
 
   user_id = request['user_id']
