@@ -49,6 +49,7 @@ post '/remove' do
   if request['text'].include?('reset')
     reviewer.essential_reviewers.clear
     reviewer.other_reviewrs.clear
+    text = 'RESET all reviewers'
   elsif request['text'].include?('essential')
     reviewer.essential_reviewers.delete(user_id)
     text = "REMOVE essntial_reviewer <@#{user_id}>"
