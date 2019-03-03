@@ -1,9 +1,9 @@
 class Reviewer
   attr_accessor :essential_reviewers, :other_reviewrs
 
-  def initialize(essentials, others)
-    @essential_reviewers = essentials
-    @other_reviewrs = others
+  def initialize(essential_reviewers = [], other_reviewrs = [])
+    @essential_reviewers = essential_reviewers
+    @other_reviewrs = other_reviewrs
   end
 
   def essential_reviwer_gacha_doesnt_include(person_id)
