@@ -1,32 +1,12 @@
-class Reviewer
+require 'array_extension.rb'
+
+class ReviewerBox
   attr_accessor :essential_reviewers, :other_reviewrs
+
+  using ArrayExtension
 
   def initialize(essential_reviewers = [], other_reviewrs = [])
     @essential_reviewers = essential_reviewers
     @other_reviewrs = other_reviewrs
-  end
-
-  def essential_reviwer_gacha_doesnt_include(person_id)
-    @essential_reviewers.reject { |id| id == person_id }.sample
-  end
-
-  def other_reviwer_gacha_doesnt_include(person_id)
-    @other_reviewrs.reject { |id| id == person_id }.sample
-  end
-
-  def format_essential_reviewers
-    text = []
-    essential_reviewers.each do |essential_reviewer|
-      text << "<@#{essential_reviewer}>\n"
-    end
-    text.join
-  end
-
-  def format_other_reviewers
-    text = []
-    other_reviewrs.each do |other_reviewer|
-      text << "<@#{other_reviewer}>\n"
-    end
-    text.join
   end
 end
