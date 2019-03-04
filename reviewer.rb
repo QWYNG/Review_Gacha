@@ -1,4 +1,4 @@
-require 'array_extension.rb'
+require './array_extension.rb'
 
 class ReviewerBox
   attr_accessor :essential_reviewers, :other_reviewrs
