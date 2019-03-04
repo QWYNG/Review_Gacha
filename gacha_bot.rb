@@ -7,8 +7,7 @@ reviewer_box = ReviewerBox.new
 
 post '/' do
   check_token!
-
-  user_id = request['user_id']
+  set_user_id
 
   essntial_reviewer = reviewer_box.essential_reviwers.sample_except_for(user_id)
   reviewer = reviewer_box.other_reviwers.sample_except_for(user_id)
@@ -19,8 +18,7 @@ end
 
 post '/set' do
   check_token!
-
-  user_id = request['user_id']
+  set_user_id
 
   if request['text'].include?('essential')
     reviewer_box.essential_reviewers << user_id
@@ -44,8 +42,7 @@ end
 
 post '/remove' do
   check_token!
-
-  user_id = request['user_id']
+  set_user_id
 
   if request['text'].include?('reset')
     reviewer_box.essential_reviewers.clear
@@ -66,6 +63,10 @@ private
 
 def check_token!
   status 500 if request['token'] != ENV['VERIFICATION_TOKEN']
+end
+
+def set_user_id
+  user_id = request['user_id']
 end
 
 def response_json(text)
