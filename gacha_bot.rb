@@ -24,10 +24,10 @@ post '/set' do
 
   if request['text'].include?('essential')
     reviewer_box.essential_reviewers << user_id
-    text = "SET essntial_reviewer <@#{user_id}>"
+    text = "Set essntial_reviewer <@#{user_id}>!"
   else
     reviewer_box.other_reviewrs << user_id
-    text = "SET reviewer <@#{user_id}>"
+    text = "Set reviewer <@#{user_id}>"
   end
 
   response_json(text)
@@ -36,8 +36,8 @@ end
 post '/reviewer' do
   check_token!
 
-  text = "essential reviewers\n#{reviewer_box.essential_reviwers.format_for_slack}" +
-         "reviwers\n#{reviewer_box.other_reviewrs.format_for_slack}"
+  text = "Essential reviewers\n#{reviewer_box.essential_reviwers.format_for_slack}" +
+         "Reviwers\n#{reviewer_box.other_reviewrs.format_for_slack}"
 
   response_json(text)
 end
@@ -50,13 +50,13 @@ post '/remove' do
   if request['text'].include?('reset')
     reviewer_box.essential_reviewers.clear
     reviewer_box.other_reviewrs.clear
-    text = 'RESET all reviewers'
+    text = 'Reset all reviewers'
   elsif request['text'].include?('essential')
     reviewer_box.essential_reviewers.delete(user_id)
-    text = "REMOVE essntial_reviewer <@#{user_id}>"
+    text = "Removed essntial_reviewer <@#{user_id}>"
   else
     reviewer_box.other_reviewrs.delete(user_id)
-    text = "REMOVE reviewer <@#{user_id}>"
+    text = "Removed reviewer <@#{user_id}>"
   end
 
   response_json(text)
