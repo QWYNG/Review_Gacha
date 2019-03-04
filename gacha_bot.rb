@@ -2,7 +2,9 @@ require 'sinatra'
 require 'json'
 require './reviewer'
 require 'dotenv/load'
+require './array_extension.rb'
 
+using ArrayExtension
 reviewer_box = ReviewerBox.new
 
 post '/' do
