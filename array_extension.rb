@@ -7,9 +7,15 @@ module ArrayExtension
     def format_for_slack
       text = []
       each do |element|
-        text << "<@#{element}>\n"
+        text << format_id(element)
       end
       text.join
+    end
+
+    private
+
+    def format_id(element)
+      "<@#{element}>\n"
     end
   end
 end
