@@ -36,7 +36,7 @@ end
 post '/reviewer' do
   check_token!
 
-  text = "Essential reviewers\n#{reviewer_box.essential_reviwers.format_for_slack}" +
+  text = "Essential reviewers\n#{reviewer_box.essential_reviewers.format_for_slack}" +
          "Reviwers\n#{reviewer_box.other_reviewrs.format_for_slack}"
 
   response_json(text)
