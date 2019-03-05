@@ -5,7 +5,7 @@ require 'dotenv/load'
 require './array_extension.rb'
 
 using ArrayExtension
-reviewer_box = ReviewerBox.new
+reviewer_box = ReviewerBox.new(essential_reviewers: [], other_reviewrs: [])
 
 post '/' do
   check_token!
