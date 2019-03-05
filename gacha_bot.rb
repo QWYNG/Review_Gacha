@@ -11,7 +11,7 @@ post '/' do
   check_token!
   user_id = request['user_id']
 
-  essntial_reviewer = reviewer_box.essential_reviwers.sample_except_for(user_id)
+  essntial_reviewer = reviewer_box.essential_reviewers.sample_except_for(user_id)
   reviewer = reviewer_box.other_reviwers.sample_except_for(user_id)
   text = "<@#{essntial_reviewer}><@#{reviewer}>レビューお願いします"
 
