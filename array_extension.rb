@@ -1,4 +1,4 @@
-module ArrayExtension
+module SlackFormat
   refine Array do
     def sample_except_for(element)
       reject { |id| id == element }.sample
@@ -11,11 +11,11 @@ module ArrayExtension
       end
       text.join
     end
+  end
 
-    private
+  private
 
-    def format_id(element)
-      "<@#{element}>\n"
-    end
+  def format_id(element)
+    "<@#{element}>\n"
   end
 end

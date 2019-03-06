@@ -4,7 +4,7 @@ require './reviewer'
 require 'dotenv/load'
 require './array_extension.rb'
 
-using ArrayExtension
+using SlackFormat
 reviewer_box = ReviewerBox.new(essential_reviewers: [], other_reviewrs: [])
 
 post '/' do
